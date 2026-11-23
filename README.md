@@ -10,7 +10,7 @@
 
 > 普通用户无需配置 Python 环境，直接下载安装包即可使用。
 
-**下载地址**：[https://github.com/JC0v0/Customer-Agent/releases/latest](https://github.com/JC0v0/Customer-Agent/releases/latest)
+**下载地址**：<https://github.com/JC0v0/Customer-Agent/releases/latest>
 
 在页面的 **Assets** 中下载 `Agent-Customer-Setup-<版本号>.exe`（约 100 MB），双击运行即可安装。
 
@@ -31,13 +31,13 @@
 
 ### AI Agent 可用工具
 
-| 工具名称                              | 功能描述                                             |
-| ------------------------------------- | ---------------------------------------------------- |
-| `get_shop_products`                 | 获取店铺商品列表（支持价格区间、销量、库存、标签等） |
-| `send_goods_link`                   | 向用户发送商品卡片链接                               |
-| `get_product_knowledge`             | 查询指定商品的详细知识（成分、规格、用法、价格等）   |
-| `search_customer_service_knowledge` | 搜索客服知识库（售后、物流、退款等政策问答）         |
-| `transfer_conversation`             | 转接会话给人工客服                                   |
+| 工具名称 | 功能描述 |
+|----------|----------|
+| `get_shop_products` | 获取店铺商品列表（支持价格区间、销量、库存、标签等） |
+| `send_goods_link` | 向用户发送商品卡片链接 |
+| `get_product_knowledge` | 查询指定商品的详细知识（成分、规格、用法、价格等） |
+| `search_customer_service_knowledge` | 搜索客服知识库（售后、物流、退款等政策问答） |
+| `transfer_conversation` | 转接会话给人工客服 |
 
 ## 同作者产品：回柚
 
@@ -48,7 +48,7 @@
 - **好回复沉淀给团队**：支持话术同步、客服提交和主管审核（团队版）。
 - **Windows / macOS 都能用**：macOS 支持 Apple 芯片；本地话术功能免费，不登录也能使用。
 
-<a href="https://huiuai.cn/?utm_source=github&utm_medium=readme&utm_campaign=customer_agent&utm_content=readme_demo">
+<a href="https://huiuai.cn/?utm_source=github&amp;utm_medium=readme&amp;utm_campaign=customer_agent&amp;utm_content=readme_demo">
   <img src="assets/huiyou/reply-demo.gif" alt="回柚界面演示：识别买家问题、给出带依据的 AI 建议、客服确认填入聊天框" width="340">
 </a>
 
@@ -58,10 +58,8 @@
 
 ## 环境要求
 
-- Python >= 3.11（仓库 `.python-version` 指定 3.11）。
-- 从源码运行 `app.py` 需要图形桌面，因为入口会显示 PyQt6 窗口；登录拼多多还需要可用浏览器。
-- Windows 安装包和 Windows exe 构建脚本仅面向 Windows。Linux 没有被源码禁止，但目前没有 Linux 端到端验证；有图形桌面的 Linux 可自行准备 Qt、Playwright 浏览器和系统依赖后尝试运行。
-- 无图形界面的 Linux 服务器不能直接将 `app.py` 当作后台服务启动；需要图形显示环境及浏览器，或另做无界面服务入口。
+- Python >= 3.11
+- Windows 操作系统（打包为 exe 后可在 Windows 上独立运行）
 
 ## 安装
 
@@ -73,10 +71,8 @@ uv sync
 ## 启动
 
 ```bash
-uv run python app.py
+python app.py
 ```
-
-Windows 下的完整环境配置和拼多多账号实测步骤见 [tests/README.md](tests/README.md)。
 
 ## 配置
 
@@ -84,14 +80,14 @@ Windows 下的完整环境配置和拼多多账号实测步骤见 [tests/README.
 
 应用通过 LiteLLM 直接调用 Chat Completions，不需要单独启动 LiteLLM Proxy。设置页提供以下六个供应商：
 
-| 设置页供应商      | LiteLLM 路由前缀 | 默认 Base URL                                         | Base URL 规则                                                         |
-| ----------------- | ---------------- | ----------------------------------------------------- | --------------------------------------------------------------------- |
-| DeepSeek          | `deepseek/`    | `https://api.deepseek.com`                          | 可留空使用默认值，或填写 HTTPS 覆盖                                   |
-| 火山引擎          | `volcengine/`  | `https://ark.cn-beijing.volces.com/api/v3`          | 可留空使用默认值，或填写 HTTPS 覆盖                                   |
-| OpenAI-compatible | `openai/`      | 无                                                    | 必须填写符合 Chat Completions 约定的 HTTPS Base URL；模型名可任意填写 |
-| Kimi/Moonshot     | `moonshot/`    | `https://api.moonshot.cn/v1`                        | 可留空使用默认值，或填写 HTTPS 覆盖                                   |
-| 智谱/Z.AI         | `zai/`         | `https://open.bigmodel.cn/api/paas/v4`              | 可留空使用默认值，或填写 HTTPS 覆盖                                   |
-| Qwen/DashScope    | `dashscope/`   | `https://dashscope.aliyuncs.com/compatible-mode/v1` | 可留空使用默认值，或填写 HTTPS 覆盖                                   |
+| 设置页供应商 | LiteLLM 路由前缀 | 默认 Base URL | Base URL 规则 |
+| --- | --- | --- | --- |
+| DeepSeek | `deepseek/` | `https://api.deepseek.com` | 可留空使用默认值，或填写 HTTPS 覆盖 |
+| 火山引擎 | `volcengine/` | `https://ark.cn-beijing.volces.com/api/v3` | 可留空使用默认值，或填写 HTTPS 覆盖 |
+| OpenAI-compatible | `openai/` | 无 | 必须填写符合 Chat Completions 约定的 HTTPS Base URL；模型名可任意填写 |
+| Kimi/Moonshot | `moonshot/` | `https://api.moonshot.cn/v1` | 可留空使用默认值，或填写 HTTPS 覆盖 |
+| 智谱/Z.AI | `zai/` | `https://open.bigmodel.cn/api/paas/v4` | 可留空使用默认值，或填写 HTTPS 覆盖 |
+| Qwen/DashScope | `dashscope/` | `https://dashscope.aliyuncs.com/compatible-mode/v1` | 可留空使用默认值，或填写 HTTPS 覆盖 |
 
 每个供应商都需要手动填写模型标识和 API Key。OpenAI-compatible 不会套用内置供应商的模型命名规则；例如可以填写组织内部模型名和其 HTTPS 端点。
 
@@ -169,17 +165,17 @@ Agent-Customer/
 
 ## 技术栈
 
-| 类别       | 技术                                   |
-| ---------- | -------------------------------------- |
-| UI 框架    | PyQt6 + pyqt6-fluent-widgets           |
-| AI 框架    | 自研 Agent 框架 + LiteLLM 直接异步调用 |
-| 数据库     | SQLAlchemy + SQLite                    |
-| 中文分词   | jieba（知识库检索）                    |
-| Token 统计 | tiktoken                               |
-| 异步通信   | asyncio + websockets                   |
-| 文档解析   | pypdf + python-docx + openpyxl + xlrd  |
-| 日志       | Loguru                                 |
-| 配置       | Pydantic                               |
+| 类别 | 技术 |
+|------|------|
+| UI 框架 | PyQt6 + pyqt6-fluent-widgets |
+| AI 框架 | 自研 Agent 框架 + LiteLLM 直接异步调用 |
+| 数据库 | SQLAlchemy + SQLite |
+| 中文分词 | jieba（知识库检索） |
+| Token 统计 | tiktoken |
+| 异步通信 | asyncio + websockets |
+| 文档解析 | pypdf + python-docx + openpyxl + xlrd |
+| 日志 | Loguru |
+| 配置 | Pydantic |
 
 ## License
 
